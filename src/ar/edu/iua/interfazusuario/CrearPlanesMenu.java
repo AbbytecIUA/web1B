@@ -65,7 +65,7 @@ public class CrearPlanesMenu {
             System.out.println("Ingrese el numero de año del plan nro "+j+":");
             temp.setAnio(Main.scanner.nextInt());
             BuscarPlan bp=new BuscarPlanImpl();
-            if(bp.buscar(temp.getAnio()).getAnio()==null){
+            if(bp.buscar(temp.getAnio())==null){
                 System.out.println("Ingrese el estado del plan(1- Borrador, 2- Activo, 3- No Activo)");
                 
                 switch(Main.scanner.nextInt()){
