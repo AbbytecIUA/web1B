@@ -10,6 +10,8 @@ import ar.edu.iua.modelo.academico.plan.Materia;
 import ar.edu.iua.modelo.academico.plan.MateriaImpl;
 import ar.edu.iua.modelo.academico.plan.Plan;
 import ar.edu.iua.modelo.academico.plan.PlanImpl;
+import ar.edu.iua.negocio.academico.plan.BuscarPlan;
+import ar.edu.iua.negocio.academico.plan.BuscarPlanImpl;
 import ar.edu.iua.negocio.academico.plan.CrearPlanes;
 import ar.edu.iua.negocio.academico.plan.CrearPlanesImpl;
 import ar.edu.iua.util.GenerarEjemplosDePlanes;
@@ -62,49 +64,55 @@ public class CrearPlanesMenu {
             anioPlanes = new ArrayList<AnioPlan>();
             System.out.println("Ingrese el numero de año del plan nro "+j+":");
             temp.setAnio(Main.scanner.nextInt());
-            System.out.println("Ingrese el estado del plan(1- Borrador, 2- Activo, 3- No Activo)");
-            
-            switch(Main.scanner.nextInt()){
-                default: 
-                    System.out.println("Seleccionado Borrador");
-                    temp.setEstadoBorrador();
-                    break;
-                case 2:
-                    temp.setEstadoActivo();
-                    break;
-                case 3:
-                    temp.setEstadoNoActivo();
-                    break;
-            }
-
-            System.out.println("Ingrese la cantidad de años en el plan "+j+":");
-            cantAños=Main.scanner.nextInt();
-            for(int k=1;k<(cantAños+1);k++){
-                System.out.println("Ingrese el nombre textual para el Año numero "+k+":");
-                String tempString=new String();
-                while(tempString.isEmpty()){
-                    tempString = Main.scanner.nextLine();
+            BuscarPlan bp=new BuscarPlanImpl();
+            if(bp.buscar(temp.getAnio()).getAnio()==null){
+                System.out.println("Ingrese el estado del plan(1- Borrador, 2- Activo, 3- No Activo)");
+                
+                switch(Main.scanner.nextInt()){
+                    default: 
+                        System.out.println("Seleccionado Borrador");
+                        temp.setEstadoBorrador();
+                        break;
+                    case 2:
+                        temp.setEstadoActivo();
+                        break;
+                    case 3:
+                        temp.setEstadoNoActivo();
+                        break;
                 }
-                tempAnio = new AnioPlanImpl(temp, k, tempString);
-                System.out.println("Ingrese la cantidad de materias para ese año:");
-                cantMaterias=Main.scanner.nextInt();
-                materias=new ArrayList<Materia>();
-                for(int l=1;l<(cantMaterias+1);l++){
-                    System.out.println("Ingrese el nombre de la materia "+l+":");
-                    while(!Main.scanner.hasNextLine()){
-                        nombreTemp = Main.scanner.nextLine();
+
+                System.out.println("Ingrese la cantidad de años en el plan "+j+":");
+                cantAños=Main.scanner.nextInt();
+                for(int k=1;k<(cantAños+1);k++){
+                    System.out.println("Ingrese el nombre textual para el Año numero "+k+":");
+                    String tempString=new String();
+                    while(tempString.isEmpty()){
+                        tempString = Main.scanner.nextLine();
                     }
-                    System.out.println("Ingrese la carga horaria de la materia "+l+":");
-                    cargaHorariaTemp = Main.scanner.nextDouble();
-                    tempMateria=new MateriaImpl(tempAnio, l, nombreTemp, cargaHorariaTemp);
-                    materias.add(tempMateria);
-                }
-                tempAnio.setMaterias(materias);
-                anioPlanes.add(tempAnio);
+                    tempAnio = new AnioPlanImpl(temp, k, tempString);
+                    System.out.println("Ingrese la cantidad de materias para ese año:");
+                    cantMaterias=Main.scanner.nextInt();
+                    materias=new ArrayList<Materia>();
+                    for(int l=1;l<(cantMaterias+1);l++){
+                        System.out.println("Ingrese el nombre de la materia "+l+":");
+                        while(!Main.scanner.hasNextLine()){
+                            nombreTemp = Main.scanner.nextLine();
+                        }
+                        System.out.println("Ingrese la carga horaria de la materia "+l+":");
+                        cargaHorariaTemp = Main.scanner.nextDouble();
+                        tempMateria=new MateriaImpl(tempAnio, l, nombreTemp, cargaHorariaTemp);
+                        materias.add(tempMateria);
+                    }
+                    tempAnio.setMaterias(materias);
+                    anioPlanes.add(tempAnio);
 
+                }
+                temp.setAnios(anioPlanes);
+                planes.add(temp);
+            } else{
+                System.out.println("El año ya existe");
             }
-            temp.setAnios(anioPlanes);
-            planes.add(temp);
+            
         }
         return planes;
     }
