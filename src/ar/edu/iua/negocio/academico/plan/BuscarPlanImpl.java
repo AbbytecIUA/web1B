@@ -7,9 +7,9 @@ public class BuscarPlanImpl implements BuscarPlan {
 
     @Override
     public Plan buscar(int anio) {
-        for (Plan plan : BaseDeDatos.planes) {
-            if(plan.getAnio()==anio){
-                return plan;
+        for (int i=0; i<BaseDeDatos.getSize();i++) {
+            if(BaseDeDatos.get(i).getAnio()==anio){
+                return BaseDeDatos.get(i);
             }
         }
         return null;

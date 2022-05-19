@@ -5,6 +5,9 @@ import java.util.List;
 import ar.edu.iua.interfazusuario.BuscarEImprimirPlanes;
 import ar.edu.iua.interfazusuario.BuscarEImprimirPlanesImpl;
 import ar.edu.iua.modelo.academico.plan.Plan;
+import ar.edu.iua.modelo.exceptions.BorrarPlanEx;
+import ar.edu.iua.modelo.exceptions.CrearPlanEx;
+import ar.edu.iua.modelo.exceptions.ModificarPlanEx;
 import ar.edu.iua.negocio.academico.plan.BorrarPlanes;
 import ar.edu.iua.negocio.academico.plan.BorrarPlanesImpl;
 import ar.edu.iua.negocio.academico.plan.BuscarPlan;
@@ -21,7 +24,7 @@ import ar.edu.iua.persistencia.BaseDeDatos;
 
 public class Pruebas {
 
-    public void probar() {
+    public void probar() throws CrearPlanEx, ModificarPlanEx, BorrarPlanEx {
 
         List<Plan> planes = GenerarEjemplosDePlanes.generar(10, true);        
 
@@ -78,7 +81,7 @@ public class Pruebas {
 
         BuscarPlan buscarPlan = new BuscarPlanImpl();
         Plan planabuscar = buscarPlan.buscar(2018);
-        System.out.println(BaseDeDatos.planes.get(0)==planabuscar?"Se encontro el plan 2018":"No se encontro el plan 2018");
+        System.out.println(BaseDeDatos.get(0)==planabuscar?"Se encontro el plan 2018":"No se encontro el plan 2018");
         
         
 

@@ -10,6 +10,7 @@ import ar.edu.iua.modelo.academico.plan.Materia;
 import ar.edu.iua.modelo.academico.plan.MateriaImpl;
 import ar.edu.iua.modelo.academico.plan.Plan;
 import ar.edu.iua.modelo.academico.plan.PlanImpl;
+import ar.edu.iua.modelo.exceptions.CrearPlanEx;
 import ar.edu.iua.negocio.academico.plan.BuscarPlan;
 import ar.edu.iua.negocio.academico.plan.BuscarPlanImpl;
 import ar.edu.iua.negocio.academico.plan.CrearPlanes;
@@ -17,7 +18,7 @@ import ar.edu.iua.negocio.academico.plan.CrearPlanesImpl;
 import ar.edu.iua.util.GenerarEjemplosDePlanes;
 
 public class CrearPlanesMenu {
-    public CrearPlanesMenu(){
+    public CrearPlanesMenu() throws CrearPlanEx {
         int i=-1, cant;
         while(i!=0){
             System.out.println("Presione 1 para generar los planes default, 2 para crearlos manualmente o 0 para volver al menu anterior");

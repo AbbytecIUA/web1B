@@ -3,6 +3,7 @@ package ar.edu.iua.negocio.academico.plan;
 import java.util.List;
 
 import ar.edu.iua.modelo.academico.plan.Plan;
+import ar.edu.iua.modelo.exceptions.BorrarPlanEx;
 
 public interface BorrarPlanes {
 
@@ -13,6 +14,6 @@ public interface BorrarPlanes {
             - Ver las mismas reglas de BorrarPlan.borrar(Plan plan)
 
     */
-    boolean borrar(List<Plan> planes);    
+    boolean borrar(List<Plan> planes) throws BorrarPlanEx;    
     
 }
