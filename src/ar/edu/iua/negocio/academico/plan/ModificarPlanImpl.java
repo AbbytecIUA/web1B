@@ -12,11 +12,11 @@ public class ModificarPlanImpl implements ModificarPlan {
     public boolean modificar(Plan plan) throws ModificarPlanEx, BorrarPlanEx {
         CrearPlan crearPlan = new CrearPlanImpl();
         BorrarPlan borrarPlan = new BorrarPlanImpl();
-        for (int i=0; i<BaseDeDatos.getSize();i++) {
-            if (BaseDeDatos.get(i).getAnio() == plan.getAnio()) {
+        for (int i=0; i<BaseDeDatos.getSizePlanes();i++) {
+            if (BaseDeDatos.getPlan(i).getAnio() == plan.getAnio()) {
                 try {
                     if (crearPlan.crear(plan)) {
-                        borrarPlan.borrar(BaseDeDatos.get(i));
+                        borrarPlan.borrar(BaseDeDatos.getPlan(i));
                         System.out.println("Plan modificado correctamete!");
                         return true;
                     } else {

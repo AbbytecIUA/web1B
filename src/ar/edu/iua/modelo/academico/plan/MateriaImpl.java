@@ -1,25 +1,14 @@
 package ar.edu.iua.modelo.academico.plan;
 
 public class MateriaImpl extends Materia {
-
-    private AnioPlan anio;
     private Integer codigo;
     private String nombre;
     private Double cargaHoraria;
 
-    public MateriaImpl(AnioPlan anio, Integer codigo, String nombre, Double cargaHoraria) {
-        this.anio = anio;
+    public MateriaImpl(Integer codigo, String nombre, Double cargaHoraria) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.cargaHoraria = cargaHoraria;
-    }
-
-    public AnioPlan getAnio() {
-        return anio;
-    }
-
-    public void setAnio(AnioPlan anio) {
-        this.anio = anio;
     }
 
     public Integer getCodigo() {

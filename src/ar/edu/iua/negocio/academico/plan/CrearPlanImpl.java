@@ -23,7 +23,7 @@ public class CrearPlanImpl implements CrearPlan {
                                 }else{
                                     secuancia1=ap.getNumero();
                                 }
-                                if(ap.getNombre()==null || ap.getMaterias()==null || ap.getNumero()==null || !ap.getPlan().equals(plan)){
+                                if(ap.getNombre()==null || ap.getMaterias()==null || ap.getNumero()==null){
                                     throw new CrearPlanEx(ap.getNombre()==null?"Nombre del año es nulo":
                                     ap.getMaterias()==null?"La lista de materias es nula":
                                     ap.getNumero()==null?"El numero de año es nulo":"El año del plan no coincide con el plan asignado a dicho año");
@@ -33,7 +33,7 @@ public class CrearPlanImpl implements CrearPlan {
                                     }else{
                                         secuencia2=0;
                                         for(Materia ma:ap.getMaterias()){
-                                            if(ma.getNombre()==null || ma.getCargaHoraria()==null || ma.getCodigo()==null || !ma.getAnio().equals(ap)){
+                                            if(ma.getNombre()==null || ma.getCargaHoraria()==null || ma.getCodigo()==null){
                                                 throw new CrearPlanEx(ma.getNombre()==null?"El nombre de la materia nro "+plan.getAnios().indexOf(ap)+" es nulo":
                                                 ma.getCargaHoraria()==null?"La carga horaria de la materia nro "+plan.getAnios().indexOf(ap)+" es nula":
                                                 ma.getCodigo()==null?"El codigo de la materia nro "+plan.getAnios().indexOf(ap)+" es nulo":
@@ -49,7 +49,7 @@ public class CrearPlanImpl implements CrearPlan {
                                                 } else{
                                                     try {
                                                         Plan nuevo = (Plan) plan.clone();
-                                                        BaseDeDatos.add(nuevo);                                                 
+                                                        BaseDeDatos.addPlan(nuevo);                                                 
                                                         return true;
                                                     } catch (CloneNotSupportedException e) {
                                                         throw new CrearPlanEx("No se pudo clonar el elemento");
@@ -78,9 +78,6 @@ public class CrearPlanImpl implements CrearPlan {
                 if(plan.getAnios()!=null){
                     if(!plan.getAnios().isEmpty()){
                         for(AnioPlan ap:plan.getAnios()){
-                            if(ap.getPlan().equals(plan)==false){ 
-                                throw new CrearPlanEx("El plan del año "+plan.getAnio()+" no coincide con el plan asignado al año "+ap.getNumero()+". Inconsistencia de datos");
-                            }
                             if(ap.getNumero()!=null){
                                 if(!(ap.getNumero()>0)){
                                     throw new CrearPlanEx("El año del plan es menor que 0");
@@ -90,9 +87,6 @@ public class CrearPlanImpl implements CrearPlan {
                                 if(!ap.getMaterias().isEmpty()){
                                     secuencia2=0;
                                     for(Materia ma:ap.getMaterias()){
-                                        if(ma.getAnio().equals(ap) == false){
-                                            throw new CrearPlanEx("El año de la materia "+ma.getAnio()+" no coincide con el año del plan dado. Inconsistencia de datos");
-                                        }
                                         if(ma.getCodigo()!=null){
                                             if(secuencia2+1==ma.getCodigo()&&ma.getCodigo()>0){
                                                 secuencia2++;
@@ -113,7 +107,7 @@ public class CrearPlanImpl implements CrearPlan {
                 }
                 try {
                     Plan nuevo = (Plan) plan.clone();
-                    BaseDeDatos.add(nuevo);                                                 
+                    BaseDeDatos.addPlan(nuevo);                                                 
                     return true;
                 } catch (CloneNotSupportedException e) {
                     throw new CrearPlanEx("No se pudo clonar el elemento");

@@ -14,13 +14,13 @@ public class BuscarPlanesImpl implements BuscarPlanes {
         String[] listaTerminos=terminos.split(" ");
 
         List<Plan> resultados= new ArrayList<Plan>();
-        for (int i=0; i<BaseDeDatos.getSize();i++) {
+        for (int i=0; i<BaseDeDatos.getSizePlanes();i++) {
             //Plan
             for (String string : listaTerminos) {
                 if(!string.isBlank()){
-                    if(compareALL(clean(string),BaseDeDatos.get(i))){
-                        if(resultados.indexOf(BaseDeDatos.get(i))<0){
-                            resultados.add(BaseDeDatos.get(i));
+                    if(compareALL(clean(string),BaseDeDatos.getPlan(i))){
+                        if(resultados.indexOf(BaseDeDatos.getPlan(i))<0){
+                            resultados.add(BaseDeDatos.getPlan(i));
                         }
                     }
                 }

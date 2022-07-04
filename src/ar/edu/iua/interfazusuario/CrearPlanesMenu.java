@@ -90,7 +90,7 @@ public class CrearPlanesMenu {
                     while(tempString.isEmpty()){
                         tempString = Main.scanner.nextLine();
                     }
-                    tempAnio = new AnioPlanImpl(temp, k, tempString);
+                    tempAnio = new AnioPlanImpl(k, tempString);
                     System.out.println("Ingrese la cantidad de materias para ese año:");
                     cantMaterias=Main.scanner.nextInt();
                     materias=new ArrayList<Materia>();
@@ -101,7 +101,7 @@ public class CrearPlanesMenu {
                         }
                         System.out.println("Ingrese la carga horaria de la materia "+l+":");
                         cargaHorariaTemp = Main.scanner.nextDouble();
-                        tempMateria=new MateriaImpl(tempAnio, l, nombreTemp, cargaHorariaTemp);
+                        tempMateria=new MateriaImpl(l, nombreTemp, cargaHorariaTemp);
                         materias.add(tempMateria);
                     }
                     tempAnio.setMaterias(materias);

@@ -67,7 +67,7 @@ public class ModificarPlanesMenu {
                         while(temp.isEmpty()){
                             temp = Main.scanner.nextLine();
                         }
-                        plan.getAnios().add(new AnioPlanImpl(plan, j, temp));
+                        plan.getAnios().add(new AnioPlanImpl(j, temp));
                         temp=new String();
                     }
                 }
@@ -105,7 +105,7 @@ public class ModificarPlanesMenu {
                             }
                             System.out.println("Ingrese la cacrga horaria de la materia nro");
                             tempb = Main.scanner.nextDouble();
-                            anioPlan.getMaterias().add(new MateriaImpl(anioPlan,j,temp,tempb));
+                            anioPlan.getMaterias().add(new MateriaImpl(j,temp,tempb));
                             tempb=0;
                             temp=new String();
                         }

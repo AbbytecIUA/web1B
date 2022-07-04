@@ -81,7 +81,7 @@ public class Pruebas {
 
         BuscarPlan buscarPlan = new BuscarPlanImpl();
         Plan planabuscar = buscarPlan.buscar(2018);
-        System.out.println(BaseDeDatos.get(0)==planabuscar?"Se encontro el plan 2018":"No se encontro el plan 2018");
+        System.out.println(BaseDeDatos.getPlan(0)==planabuscar?"Se encontro el plan 2018":"No se encontro el plan 2018");
         
         
 

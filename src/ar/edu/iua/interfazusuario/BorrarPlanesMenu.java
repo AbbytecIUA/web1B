@@ -12,7 +12,7 @@ public class BorrarPlanesMenu {
         while(valor!=0){
             BuscarPlan buscarPlan = new BuscarPlanImpl();
             if(valor!=0){
-                BaseDeDatos.remove(buscarPlan.buscar(valor));
+                BaseDeDatos.removePlan(buscarPlan.buscar(valor));
             }
             valor = Main.scanner.nextInt();
         }

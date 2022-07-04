@@ -6,10 +6,6 @@ import ar.edu.iua.modelo.Objeto;
 
 public abstract class AnioPlan extends Objeto {
 
-    abstract public Plan getPlan();
-
-    abstract void setPlan(Plan plan);
-
     abstract public Integer getNumero();
 
     abstract public void setNumero(Integer numero);

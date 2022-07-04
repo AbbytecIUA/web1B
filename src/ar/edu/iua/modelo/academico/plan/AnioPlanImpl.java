@@ -4,24 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnioPlanImpl extends AnioPlan {
-
-    private Plan plan;
     private Integer numero;
     private String nombre;
     private List<Materia> materias = new ArrayList<Materia>();
 
-    public AnioPlanImpl(Plan plan, Integer numero, String nombre) {
-        this.plan = plan;
+    public AnioPlanImpl(Integer numero, String nombre) {
         this.numero = numero;
         this.nombre = nombre;
-    }
-
-    public Plan getPlan() {
-        return plan;
-    }
-
-    public void setPlan(Plan plan) {
-        this.plan = plan;
     }
 
     public Integer getNumero() {

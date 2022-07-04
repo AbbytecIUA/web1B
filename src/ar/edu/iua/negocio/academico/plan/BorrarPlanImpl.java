@@ -9,10 +9,10 @@ public class BorrarPlanImpl implements BorrarPlan {
     public boolean borrar(Plan plan) throws BorrarPlanEx {
         if(plan!=null){
             if(plan.isEstadoBorrador()){
-                BaseDeDatos.remove(plan);
+                BaseDeDatos.removePlan(plan);
             }
         }else{
-            throw new BorrarPlanEx("El plan es nulo");
+            throw new BorrarPlanEx("El plan es nulo o no existe");
         }
         return true;
     }
