@@ -35,6 +35,7 @@ public class Main extends Thread{
             System.out.println("1- Crear Planes");
             System.out.println("2- Borrar Planes");
             System.out.println("3- Modificar Planes");
+            System.out.println("4- Administrar el personal");
             System.out.println("5- Buscar E Imprimir Planes");
             System.out.println("6- Ejecutar Prueba");
             System.out.println("0- Salir");

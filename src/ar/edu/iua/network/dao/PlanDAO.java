@@ -21,8 +21,7 @@ public class PlanDAO implements intCRUD<PlanImpl>{
     @Override
     public boolean create(PlanImpl elemento) throws CrearPlanEx {
         CrearPlanImpl crear = new CrearPlanImpl();
-        crear.crear(elemento);
-        return false;
+        return crear.crear(elemento);
     }
 
     @Override
@@ -35,9 +34,8 @@ public class PlanDAO implements intCRUD<PlanImpl>{
 
     @Override
     public boolean update(PlanImpl elemento) throws ModificarPlanEx, BorrarPlanEx {
-        Plan elem = (Plan) elemento;
         ModificarPlanImpl mp = new ModificarPlanImpl();
-        return mp.modificar(elem);
+        return mp.modificar(elemento);
     }
 
     @Override

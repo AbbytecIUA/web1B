@@ -14,8 +14,8 @@ public abstract class AnioPlan extends Objeto {
 
     abstract public void setNombre(String nombre);
 
-    abstract public List<Materia> getMaterias();
+    abstract public List<MateriaImpl> getMaterias();
 
-    abstract public void setMaterias(List<Materia> materias);
+    abstract public void setMaterias(List<MateriaImpl> materias);
 
 }

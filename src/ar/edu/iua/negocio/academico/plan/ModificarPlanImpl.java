@@ -13,18 +13,22 @@ public class ModificarPlanImpl implements ModificarPlan {
         CrearPlan crearPlan = new CrearPlanImpl();
         BorrarPlan borrarPlan = new BorrarPlanImpl();
         for (int i=0; i<BaseDeDatos.getSizePlanes();i++) {
-            if (BaseDeDatos.getPlan(i).getAnio() == plan.getAnio()) {
+            System.out.println(BaseDeDatos.getPlan(i).getAnio() + " " + plan.getAnio());
+            if (BaseDeDatos.getPlan(i).getAnio().equals(plan.getAnio())) {
+                System.out.println("NO HAY CHANCE");
                 try {
+                    Plan old = (Plan) BaseDeDatos.getPlan(i).clone();
+                    borrarPlan.borrarActivo(BaseDeDatos.getPlan(i));
                     if (crearPlan.crear(plan)) {
-                        borrarPlan.borrar(BaseDeDatos.getPlan(i));
                         System.out.println("Plan modificado correctamete!");
                         return true;
                     } else {
+                        crearPlan.crear(old);
                         System.err.println("No se ha podido modificar el plan! Informacion Invalida");
                         return false;
                     }
-                } catch (CrearPlanEx e) {
-                    throw new ModificarPlanEx(e.getMessage());
+                } catch (CloneNotSupportedException | CrearPlanEx e1) {
+                    throw new ModificarPlanEx(e1.getMessage());
                 }
             }
         }

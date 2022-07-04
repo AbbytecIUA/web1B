@@ -7,7 +7,7 @@ public class PlanImpl extends Plan {
     private Integer anio;
     private Estado estado;
     private enum Estado{BORRADOR,ACTIVO,NO_ACTIVO};
-    private List<AnioPlan> anios = new ArrayList<AnioPlan>();
+    private List<AnioPlanImpl> anios = new ArrayList<AnioPlanImpl>();
 
     public Integer getAnio() {
         return anio;
@@ -36,11 +36,11 @@ public class PlanImpl extends Plan {
     public boolean isEstadoNoActivo(){
         return estado == Estado.NO_ACTIVO;
     }
-    public List<AnioPlan> getAnios() {
+    public List<AnioPlanImpl> getAnios() {
         return anios;
     }
 
-    public void setAnios(List<AnioPlan> anios) {
+    public void setAnios(List<AnioPlanImpl> anios) {
         this.anios = anios;
     }
 

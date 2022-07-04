@@ -6,7 +6,7 @@ import java.util.List;
 public class AnioPlanImpl extends AnioPlan {
     private Integer numero;
     private String nombre;
-    private List<Materia> materias = new ArrayList<Materia>();
+    private List<MateriaImpl> materias = new ArrayList<MateriaImpl>();
 
     public AnioPlanImpl(Integer numero, String nombre) {
         this.numero = numero;
@@ -30,11 +30,11 @@ public class AnioPlanImpl extends AnioPlan {
         this.nombre = nombre;
     }
 
-    public List<Materia> getMaterias() {
+    public List<MateriaImpl> getMaterias() {
         return materias;
     }
 
-    public void setMaterias(List<Materia> materias) {
+    public void setMaterias(List<MateriaImpl> materias) {
         this.materias = materias;
     }
 

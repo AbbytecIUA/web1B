@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.iua.Main;
-import ar.edu.iua.modelo.academico.plan.AnioPlan;
 import ar.edu.iua.modelo.academico.plan.AnioPlanImpl;
-import ar.edu.iua.modelo.academico.plan.Materia;
 import ar.edu.iua.modelo.academico.plan.MateriaImpl;
 import ar.edu.iua.modelo.academico.plan.Plan;
 import ar.edu.iua.modelo.academico.plan.PlanImpl;
@@ -49,12 +47,12 @@ public class CrearPlanesMenu {
 
     private List<Plan> crearPlanesManualmente(int cant) {
         List<Plan> planes = new ArrayList<Plan>();
-        List<AnioPlan> anioPlanes;
-        List<Materia> materias;
+        List<AnioPlanImpl> anioPlanes;
+        List<MateriaImpl> materias;
 
         Plan temp;
-        AnioPlan tempAnio;
-        Materia tempMateria;
+        AnioPlanImpl tempAnio;
+        MateriaImpl tempMateria;
 
         int cantAños,cantMaterias;
         String nombreTemp=new String();
@@ -62,7 +60,7 @@ public class CrearPlanesMenu {
 
         for (int j=0;j<cant;j++) {
             temp = new PlanImpl();
-            anioPlanes = new ArrayList<AnioPlan>();
+            anioPlanes = new ArrayList<AnioPlanImpl>();
             System.out.println("Ingrese el numero de año del plan nro "+j+":");
             temp.setAnio(Main.scanner.nextInt());
             BuscarPlan bp=new BuscarPlanImpl();
@@ -93,7 +91,7 @@ public class CrearPlanesMenu {
                     tempAnio = new AnioPlanImpl(k, tempString);
                     System.out.println("Ingrese la cantidad de materias para ese año:");
                     cantMaterias=Main.scanner.nextInt();
-                    materias=new ArrayList<Materia>();
+                    materias=new ArrayList<MateriaImpl>();
                     for(int l=1;l<(cantMaterias+1);l++){
                         System.out.println("Ingrese el nombre de la materia "+l+":");
                         while(!Main.scanner.hasNextLine()){

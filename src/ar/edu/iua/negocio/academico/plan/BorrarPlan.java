@@ -13,5 +13,6 @@ public interface BorrarPlan {
 
     */
     boolean borrar(Plan plan) throws BorrarPlanEx;    
+    boolean borrarActivo(Plan plan) throws BorrarPlanEx;   
     
 }

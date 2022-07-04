@@ -95,7 +95,6 @@ public class administradorSocket extends Thread {
 					// ANALIZAMOS LAS ACCIONES
 					if (hacer.equalsIgnoreCase("VerPlanes")) {
 						Sout("estoy en ReadALL del Get");
-						PlanImpl ele = new PlanImpl();
 						PlanDAO ldao = new PlanDAO();
 						List<PlanImpl> listadoElementos;
 						listadoElementos = ldao.readAll();
@@ -112,9 +111,7 @@ public class administradorSocket extends Thread {
 						
 						listadoJSON = listadoJSON.substring(0, listadoJSON.length() - 1);
 						listadoJSON += "]";
-						// resp.enviarRespuestaDatos(200, resp.getInitPage("Hola Mundo !!!"));
-						Sout(gson.toJson((PlanImpl) ele));
-						PaginaInicio = resp.getInitPage(gson.toJson((PlanImpl) ele));
+
 						resp.imprimirSalida(resp.getHeader());
 						resp.imprimirSalida(listadoJSON);
 					} else if (hacer.equalsIgnoreCase("BuscarPlan")) {
@@ -145,7 +142,7 @@ public class administradorSocket extends Thread {
 						}
 						listadoJSON = listadoJSON.substring(0, listadoJSON.length() - 1);
 						listadoJSON += "]";
-						// resp.enviarRespuestaDatos(200, resp.getInitPage("Hola Mundo !!!"));
+
 						resp.imprimirSalida(resp.getHeader());
 						resp.imprimirSalida(listadoJSON);
 
@@ -185,13 +182,12 @@ public class administradorSocket extends Thread {
 						}
 						listadoJSON = listadoJSON.substring(0, listadoJSON.length() - 1);
 						listadoJSON += "]";
-						// resp.enviarRespuestaDatos(200, resp.getInitPage("Hola Mundo !!!"));
+
 						resp.imprimirSalida(resp.getHeader());
 						resp.imprimirSalida(listadoJSON);
 					} else if (hacer.equalsIgnoreCase("AgregarPlan")) {
 
 						Sout("estoy en Agregar del Get");
-						PlanImpl ele = new PlanImpl();
 						PlanImpl elementoAAgregar = new PlanImpl();
 						PlanDAO ldao = new PlanDAO();
 						List<PlanImpl> listadoElementos = new ArrayList<>();
@@ -226,15 +222,12 @@ public class administradorSocket extends Thread {
 						}
 						listadoJSON = listadoJSON.substring(0, listadoJSON.length() - 1);
 						listadoJSON += "]";
-						// resp.enviarRespuestaDatos(200, resp.getInitPage("Hola Mundo !!!"));
-						Sout(gson.toJson((PlanImpl) ele));
-						PaginaInicio = resp.getInitPage(gson.toJson((PlanImpl) ele));
+
 						resp.imprimirSalida(resp.getHeader());
 						resp.imprimirSalida(listadoJSON);
 					} else if (hacer.equalsIgnoreCase("ModificarPlan")) {
 
 						Sout("estoy en Modificar del Get");
-						PlanImpl ele = new PlanImpl();
 						PlanImpl elementoAModificar = new PlanImpl();
 						PlanDAO ldao = new PlanDAO();
 						List<PlanImpl> listadoElementos = new ArrayList<>();
@@ -245,7 +238,9 @@ public class administradorSocket extends Thread {
 						for (String param : parametros) {
 							switch (req.getNombreParametro(param)) {
 								case "Plan":
+								System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 									String result = URLDecoder.decode(req.getValorParametro(param), StandardCharsets.UTF_8);
+									System.out.println(result);
 									elementoAModificar = gson.fromJson(result, PlanImpl.class);
 									break;
 								case "Terminos":
@@ -269,9 +264,7 @@ public class administradorSocket extends Thread {
 						}
 						listadoJSON = listadoJSON.substring(0, listadoJSON.length() - 1);
 						listadoJSON += "]";
-						// resp.enviarRespuestaDatos(200, resp.getInitPage("Hola Mundo !!!"));
-						Sout(gson.toJson((PlanImpl) ele));
-						PaginaInicio = resp.getInitPage(gson.toJson((PlanImpl) ele));
+
 						resp.imprimirSalida(resp.getHeader());
 						resp.imprimirSalida(listadoJSON);
 					} else { // no piden ninguna accion enviamos un archivo, por defecto es index.html

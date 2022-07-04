@@ -57,7 +57,8 @@ public class HttpRequest {
 
 	public String[] getParametros() throws IOException {
 		parametros = null;
-		String[] palabras = HttpRequest[0].split("/");
+		String[] palabras = HttpRequest[0].split("/",3);
+
 		String Pedido = palabras[2].substring(0, palabras[2].indexOf(" HTTP"));
 		Sout(Pedido);
 		if (Pedido.length() > 0) {

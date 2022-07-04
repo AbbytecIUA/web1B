@@ -27,11 +27,11 @@ public class GenerarEjemplosDePlanes {
 
         // AÑOS DEL PLAN 2018
 
-        AnioPlan primero = new AnioPlanImpl(1, "Primer año");
-        AnioPlan segundo = new AnioPlanImpl(2, "Segundo año");
-        AnioPlan tercero = new AnioPlanImpl(3, "Tercero año");
-        AnioPlan cuarto = new AnioPlanImpl(4, "Cuarto año");
-        AnioPlan quinto = new AnioPlanImpl(5, "Quinto año");
+        AnioPlanImpl primero = new AnioPlanImpl(1, "Primer año");
+        AnioPlanImpl segundo = new AnioPlanImpl(2, "Segundo año");
+        AnioPlanImpl tercero = new AnioPlanImpl(3, "Tercero año");
+        AnioPlanImpl cuarto = new AnioPlanImpl(4, "Cuarto año");
+        AnioPlanImpl quinto = new AnioPlanImpl(5, "Quinto año");
 
         plan2018.getAnios().add(primero);
         plan2018.getAnios().add(segundo);
@@ -43,18 +43,18 @@ public class GenerarEjemplosDePlanes {
 
         int codigoMateria = 1;
 
-        Materia m1 = new MateriaImpl(codigoMateria++, "Ciencias de la Vida y de la Tierra ", 3.0);
-        Materia m2 = new MateriaImpl(codigoMateria++, "Lengua y Literatura Castellanas I", 5.0);
-        Materia m3 = new MateriaImpl(codigoMateria++, "Lengua y Cultura Latinas I ", 4.0);
-        Materia m4 = new MateriaImpl(codigoMateria++, "Lengua y Cultura Inglesas I ", 3.0);
-        Materia m5 = new MateriaImpl(codigoMateria++, "Formación Musical I ", 3.0);
-        Materia m6 = new MateriaImpl(codigoMateria++, "Formación Plástica I ", 3.0);
-        Materia m7 = new MateriaImpl(codigoMateria++, "Matemática I", 4.0);
-        Materia m8 = new MateriaImpl(codigoMateria++, "Geografía I ", 3.0);
-        Materia m9 = new MateriaImpl(codigoMateria++, "Historia I", 3.0);
-        Materia m10 = new MateriaImpl(codigoMateria++, "Formación Ética y Ciudadana I", 3.0);
-        Materia m11 = new MateriaImpl(codigoMateria++, "Estrategias de Aprendizaje y Entornos Virtuales", 4.0);
-        Materia m12 = new MateriaImpl(codigoMateria++, "Educación Física y Deportes I", 0.0);
+        MateriaImpl m1 = new MateriaImpl(codigoMateria++, "Ciencias de la Vida y de la Tierra ", 3.0);
+        MateriaImpl m2 = new MateriaImpl(codigoMateria++, "Lengua y Literatura Castellanas I", 5.0);
+        MateriaImpl m3 = new MateriaImpl(codigoMateria++, "Lengua y Cultura Latinas I ", 4.0);
+        MateriaImpl m4 = new MateriaImpl(codigoMateria++, "Lengua y Cultura Inglesas I ", 3.0);
+        MateriaImpl m5 = new MateriaImpl(codigoMateria++, "Formación Musical I ", 3.0);
+        MateriaImpl m6 = new MateriaImpl(codigoMateria++, "Formación Plástica I ", 3.0);
+        MateriaImpl m7 = new MateriaImpl(codigoMateria++, "Matemática I", 4.0);
+        MateriaImpl m8 = new MateriaImpl(codigoMateria++, "Geografía I ", 3.0);
+        MateriaImpl m9 = new MateriaImpl(codigoMateria++, "Historia I", 3.0);
+        MateriaImpl m10 = new MateriaImpl(codigoMateria++, "Formación Ética y Ciudadana I", 3.0);
+        MateriaImpl m11 = new MateriaImpl(codigoMateria++, "Estrategias de Aprendizaje y Entornos Virtuales", 4.0);
+        MateriaImpl m12 = new MateriaImpl(codigoMateria++, "Educación Física y Deportes I", 1.0);
 
         primero.getMaterias().add(m1);
         primero.getMaterias().add(m2);
@@ -162,8 +162,8 @@ public class GenerarEjemplosDePlanes {
         tercero = new AnioPlanImpl(3, "Tercero año");
         cuarto = new AnioPlanImpl(4, "Cuarto año");
         quinto = new AnioPlanImpl(5, "Quinto año");
-        AnioPlan sexto = new AnioPlanImpl(6, "Sexto año");
-        AnioPlan septimo = new AnioPlanImpl(7, "Septimo año");
+        AnioPlanImpl sexto = new AnioPlanImpl(6, "Sexto año");
+        AnioPlanImpl septimo = new AnioPlanImpl(7, "Septimo año");
 
         plan2001.getAnios().add(primero);
         plan2001.getAnios().add(segundo);

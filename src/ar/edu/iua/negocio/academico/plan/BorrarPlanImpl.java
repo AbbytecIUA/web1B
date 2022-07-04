@@ -16,4 +16,12 @@ public class BorrarPlanImpl implements BorrarPlan {
         }
         return true;
     }
+    public boolean borrarActivo(Plan plan) throws BorrarPlanEx {
+        if(plan!=null){
+            BaseDeDatos.removePlan(plan);
+        }else{
+            throw new BorrarPlanEx("El plan es nulo o no existe");
+        }
+        return true;
+    }
 }
